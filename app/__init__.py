@@ -88,31 +88,6 @@ def register_blueprints(app):
     def root_redirect():
         return redirect("/apidocs")
 
-    # Health check endpoint
-    @app.route("/health")
-    def health_check():
-        """Health check endpoint for monitoring."""
-        try:
-            # Test database connection
-            db.session.execute("SELECT 1")
-            db.session.commit()
-
-            return (
-                jsonify(
-                    {"status": "healthy", "database": "connected", "version": "1.0.0"}
-                ),
-                200,
-            )
-
-        except Exception as e:
-            logger.error(f"Health check failed: {str(e)}")
-            return (
-                jsonify(
-                    {"status": "unhealthy", "database": "disconnected", "error": str(e)}
-                ),
-                503,
-            )
-
 
 def register_error_handlers(app):
     """Register global error handlers"""
