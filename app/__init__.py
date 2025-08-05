@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, jsonify, redirect
+from flask import Flask
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from app.config.config import config_by_name
@@ -24,6 +24,14 @@ def create_app(config_name=None):
     """
 
     app = Flask(__name__)
+
+    app.config["SWAGGER"] = {
+        "title": "User Management API",
+        "uiversion": 3,
+        "openapi": "3.0.2",
+        "specs_route": "/",
+    }
+
     Swagger(app)
     # Load configuration dynamically from config.py (which now loads from db_config.json)
     env = config_name or os.getenv("FLASK_ENV", "default")
@@ -31,7 +39,6 @@ def create_app(config_name=None):
     create_db(app)
     initialize_extensions(app)
     register_blueprints(app)
-    register_error_handlers(app)
     create_tables(app)
 
     logger.info("Flask application created successfully")
@@ -82,48 +89,6 @@ def register_blueprints(app):
     from app.routes.api import api_bp
 
     app.register_blueprint(api_bp, url_prefix="/api")
-
-    # Redirect root to Swagger UI
-    @app.route("/")
-    def root_redirect():
-        return redirect("/apidocs")
-
-
-def register_error_handlers(app):
-    """Register global error handlers"""
-
-    @app.errorhandler(404)
-    def not_found(error):
-        return (
-            jsonify(
-                {"error": "Not Found", "message": "The required resource was not found"}
-            ),
-            404,
-        )
-
-    @app.errorhandler(500)
-    def internal_error(error):
-        return (
-            jsonify(
-                {
-                    "error": "Internal Server Error",
-                    "message": "An unexpected error occurred",
-                }
-            ),
-            500,
-        )
-
-    @app.errorhandler(400)
-    def bad_request(error):
-        return (
-            jsonify(
-                {
-                    "error": "Bad Request",
-                    "message": "The request could not be understood by the server",
-                }
-            ),
-            404,
-        )
 
 
 def create_tables(app):
