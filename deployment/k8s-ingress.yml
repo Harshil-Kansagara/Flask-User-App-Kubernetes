@@ -5,11 +5,11 @@ metadata:
   namespace: flask-user-app-dev-namespace
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules:
-  - host: flask-user-app.local
-    http:
+  - http:
       paths:
       - path: /
         pathType: Prefix
