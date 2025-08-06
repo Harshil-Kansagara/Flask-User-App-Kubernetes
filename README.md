@@ -19,6 +19,7 @@ A scalable Flask-based REST API microservice for user management with PostgreSQL
 - [API Documentation](#api-documentation)
 - [Docker Deployment](#docker-deployment)
 - [Kubernetes Deployment](#kubernetes-deployment)
+- [Development](#development)
 - [Demo Video](#demo-video)
 
 ## Architecture
@@ -55,15 +56,19 @@ The application follows a microservice architecture with the following component
    ```
 
 3. **Access the application**
-   - API Documentation: <http://localhost:5000/apidocs>
+   - API Documentation: <http://localhost:5000/>
    - API Base URL: <http://localhost:5000/api>
 
 ## API Documentation
 
 ### Base URL
 
-- **Local**: `http://localhost:5000/api`
-- **Kubernetes**: `http://flask-user-app.local/api` (with ingress configured)
+- **Local Development**: `http://localhost:5000` (root redirects to Swagger UI)
+  - Swagger UI: `http://localhost:5000/`
+  - API endpoints: `http://localhost:5000/api/*`
+- **Kubernetes (Ingress)**: `http://user-app.flask.com` (requires hosts file entry and ingress setup)
+  - Swagger UI: `http://user-app.flask.com/`
+  - API endpoints: `http://user-app.flask.com/api/*`
 
 ### Available Endpoints
 
@@ -72,7 +77,7 @@ The application follows a microservice architecture with the following component
 | GET | `/api/users` | Get all users (supports department filter) |
 | GET | `/api/users/{id}` | Get user by ID |
 | POST | `/api/users` | Create new user |
-| GET | `/apidocs` | Swagger UI documentation |
+| GET | `/` | Swagger UI documentation |
 
 ## Docker Deployment
 
@@ -108,7 +113,7 @@ The application follows a microservice architecture with the following component
    kubectl apply -f k8s-flask-deployment.yml
    ```
 
-5. **Setup Ingress (Optional)**
+5. **Setup Ingress**
 
    ```bash
    kubectl apply -f k8s-ingress.yml
@@ -129,13 +134,32 @@ kubectl get svc -n flask-user-app-dev-namespace
 kubectl get pv,pvc -n flask-user-app-dev-namespace
 ```
 
-### Access the Application
+## Development
 
-```bash
-# Port forward to access locally
-kubectl port-forward svc/flask-user-app-service 8080:80 -n flask-user-app-dev-namespace
+### Project Structure
 
-# Access at http://localhost:8080
+```text
+flask-user-microservice/
+├── app/
+│   ├── __init__.py              # Application factory
+│   ├── config/
+│   │   └── config.py            # Configuration settings
+│   ├── models/
+│   │   └── user.py              # User model
+│   ├── routes/
+│   │   └── api.py               # API routes
+│   └── utils/
+│       └── db_helpers.py        # Database utilities
+├── docker-compose.yml           # Docker Compose configuration
+├── requirements.txt             # Python dependencies
+├── main.py                      # Application entry point
+├── .env                         # Environment variables
+└── k8s/                         # Kubernetes manifests
+    ├── k8s-configmap.yml
+    ├── k8s-flask-deployment.yml
+    ├── k8s-ingress.yml
+    ├── k8s-postgresql-statefulset-deployment.yml
+    └── k8s-secret.yml
 ```
 
 ## Demo Video
@@ -147,13 +171,13 @@ The demo video should showcase the following:
 1. **Kubernetes Cluster Overview**
    - Display all deployed objects: `kubectl get all -n flask-user-app-dev-namespace`
    - Show pods, services, deployments, statefulsets, and persistent volumes
-   - Video URL: <>
+   - Video URL: [Kubernetes Cluster Overview](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Kubernetes%20Cluster%20Overview.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=iinEIp)
 
 2. **Application Functionality**
-   - Access Swagger UI: `http://flask-user-app.local/apidocs`
+   - Access Swagger UI: `http://user-app.flask.com/`
    - Demonstrate API calls to retrieve user records
    - Show database connectivity and data persistence
-   - Video URL: <>
+   - Video URL: [Application Functionality](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Application%20Functionality.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=RpcrZ2)
 
 3. **Self-Healing Demonstration**
    - **Kill API Pod**:  
@@ -163,7 +187,7 @@ The demo video should showcase the following:
      ```
 
     Show automatic pod regeneration by Kubernetes
-    Video URL: <>
+    Video URL: [Kill API Pod](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Kill%20API%20Pod.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=lKoWW1)
 
    - **Kill Database Pod**:
 
@@ -172,19 +196,19 @@ The demo video should showcase the following:
      ```
 
     Demonstrate pod regeneration and data persistence (StatefulSet behavior)
-    Video URL: <>
+    Video URL: [Kill Database Pod](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Kill%20Database%20Pod.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5STeKV)
 
 4. **Data Persistence Verification**
    - Make API calls before killing database pod
    - After database pod regeneration, verify data is still available
    - Show that StatefulSet maintains data integrity
-   - Video URL: <>
+   - Video URL: [Data Persistence Verification](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Data%20Persistence%20Verification.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dx7gHm)
 
 ## Resources
 
 - **Code Repository**: `https://github.com/Harshil-Kansagara/Flask-User-App-Kubernetes.git`
 - **Docker Hub**: `https://hub.docker.com/r/harshilkansagara/flask_user_app`
-- **API Documentation**: `http://flask-user-app.local/apidocs`
+- **API Documentation**: `http://user-app.flask.com/`
 
 ## Configuration Details
 
