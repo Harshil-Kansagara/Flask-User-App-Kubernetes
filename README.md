@@ -207,10 +207,9 @@ The demo video should showcase the following:
 
 ## Resources
 
-- **Code Repository**: `https://github.com/Harshil-Kansagara/Flask-User-App-Kubernetes.git`
-- **Docker Hub**: `https://hub.docker.com/r/harshilkansagara/flask_user_app`
-- **API Documentation**: `http://user-app.flask.com/`
-- **Demo Video folder**: `https://nagarro-my.sharepoint.com/:f:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos?csf=1&web=1&e=cD0cay`
+- **Code Repository**: [Github Repository](https://github.com/Harshil-Kansagara/Flask-User-App-Kubernetes.git)
+- **Docker Hub**: [Docker Hub](https://hub.docker.com/r/harshilkansagara/flask_user_app)
+- **Demo Video folder**: [Demo Videos](https://nagarro-my.sharepoint.com/:f:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos?csf=1&web=1&e=cD0cay)
 
 ## Configuration Details
 
