@@ -172,13 +172,13 @@ The demo video should showcase the following:
 1. **Kubernetes Cluster Overview**
    - Display all deployed objects: `kubectl get all -n flask-user-app-dev-namespace`
    - Show pods, services, deployments, statefulsets, and persistent volumes
-   - Video URL: [Kubernetes Cluster Overview](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Kubernetes%20Cluster%20Overview.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=iinEIp)
+   - Video URL: [Kubernetes Cluster Overview](https://nagarro-my.sharepoint.com/:v:/p/kansagara_harshil/ESKlnLveOT1Gio9Mmgidr6cBxtDmqpSgVTPZRSRI5YPd_w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=oFR8HU)
 
 2. **Application Functionality**
    - Access Swagger UI: `http://user-app.flask.com/`
    - Demonstrate API calls to retrieve user records
    - Show database connectivity and data persistence
-   - Video URL: [Application Functionality](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Application%20Functionality.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=RpcrZ2)
+   - Video URL: [Application Functionality](https://nagarro-my.sharepoint.com/:v:/p/kansagara_harshil/EWdKgpixsZVFuRqG13vjqPoB4BNDGQb3N63KuDo_eEG1sg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=VOmy18)
 
 3. **Self-Healing Demonstration**
    - **Kill API Pod**:  
@@ -188,7 +188,7 @@ The demo video should showcase the following:
      ```
 
     Show automatic pod regeneration by Kubernetes
-    Video URL: [Kill API Pod](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Kill%20API%20Pod.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=lKoWW1)
+    Video URL: [Kill API Pod](https://nagarro-my.sharepoint.com/:v:/p/kansagara_harshil/EbPYH6GRpl5JtFWcytY6VHIBkyPovXskVhw9JpVfd7jpIA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=SsDcKa)
 
    - **Kill Database Pod**:
 
@@ -197,13 +197,13 @@ The demo video should showcase the following:
      ```
 
     Demonstrate pod regeneration and data persistence (StatefulSet behavior)
-    Video URL: [Kill Database Pod](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Kill%20Database%20Pod.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=5STeKV)
+    Video URL: [Kill Database Pod](https://nagarro-my.sharepoint.com/:v:/p/kansagara_harshil/EWDFgUTa_8JNiCOhMkvdRKoBzQHUC8X084MGQUAI-hXIdA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=KOyE6I)
 
 4. **Data Persistence Verification**
    - Make API calls before killing database pod
    - After database pod regeneration, verify data is still available
    - Show that StatefulSet maintains data integrity
-   - Video URL: [Data Persistence Verification](https://nagarro-my.sharepoint.com/:v:/r/personal/kansagara_harshil_nagarro_com/Documents/NAGP%20Assignments/Kubernetes%20and%20Advanced%20DevOps%20Assignment/Demo%20Videos/Data%20Persistence%20Verification.mp4?csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=dx7gHm)
+   - Video URL: [Data Persistence Verification](https://nagarro-my.sharepoint.com/:v:/p/kansagara_harshil/Ed8tOtUBVgdElQHmGuTjFQoBNyPfpvWUdrW50OFSi1nYXg?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=1vaIdP)
 
 ## Resources
 
