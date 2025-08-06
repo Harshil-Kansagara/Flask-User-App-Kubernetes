@@ -168,23 +168,22 @@ def get_user(user_id):
 @swag_from(
     {
         "tags": ["Users"],
-        "consumes": ["application/json"],
-        "parameters": [
-            {
-                "in": "body",
-                "name": "body",
-                "required": True,
-                "schema": {
-                    "type": "object",
-                    "required": ["name", "email", "department"],
-                    "properties": {
-                        "name": {"type": "string"},
-                        "email": {"type": "string"},
-                        "department": {"type": "string"},
-                    },
-                },
-            }
-        ],
+        "requestBody": {
+            "required": True,
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "required": ["name", "email", "department"],
+                        "properties": {
+                            "name": {"type": "string"},
+                            "email": {"type": "string"},
+                            "department": {"type": "string"},
+                        },
+                    }
+                }
+            },
+        },
         "responses": {
             201: {
                 "description": "User created successfully",
